@@ -1,9 +1,14 @@
 import { Link } from "react-router-dom";
 
+// CSS Modules: create-react-app comes with functionality to import CSS files like this. The CSS code gets injected into the React application during the build step.
+// The CSS style classes in MainNavigation.module.css will become properties on this classes object. The properties can then be added to the React components.
+// The styles are scoped and unique to only this component.
+import classes from "./MainNavigation.module.css";
+
 function MainNavigation() {
   return (
-    <header>
-      <div>React Meetups</div>
+    <header className={classes.header}>
+      <div className={classes.logo}>React Meetups</div>
       <nav>
         <ul>
           <li>
