@@ -1,3 +1,5 @@
+import MeetupList from "../components/meetups/MeetupList";
+
 const DUMMY_DATA = [
   {
     id: "m1",
@@ -22,11 +24,7 @@ function AllMeetupsPage() {
     <section>
       <h1>All Meetups</h1>
       {/* React can render an array of JS objects as JSX elements. The .map fn in JS returns an array of objects. */}
-      <ul>
-        {DUMMY_DATA.map((meetup) => {
-          return <li key={meetup.id}>{meetup.title}</li>;
-        })}
-      </ul>
+      <MeetupList meetups={DUMMY_DATA} />
     </section>
   );
 }
