@@ -23,7 +23,7 @@ function AllMeetupsPage() {
   return (
     <section>
       <h1>All Meetups</h1>
-      {/* React can render an array of JS objects as JSX elements. The .map fn in JS returns an array of objects. */}
+      {/* React CAN render arrays of JS objects as JSX elements. The .map fn in JS returns an array of transformed objects. */}
       <MeetupList meetups={DUMMY_DATA} />
     </section>
   );
