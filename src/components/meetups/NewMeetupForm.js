@@ -2,7 +2,7 @@ import { useRef } from "react";
 import Card from "../ui/Card";
 import classes from "./NewMeetupForm.module.css";
 
-function NewMeetupForm() {
+function NewMeetupForm(props) {
   // create a "reference" object. refs are good for reading values.
   const titleInputRef = useRef();
   const imageInputRef = useRef();
@@ -19,6 +19,15 @@ function NewMeetupForm() {
     const enteredImage = imageInputRef.current.value;
     const enteredAddress = addressInputRef.current.value;
     const enteredDescription = descriptionInputRef.current.value;
+
+    const meetupData = {
+      title: enteredTitle,
+      image: enteredImage,
+      address: enteredAddress,
+      description: enteredDescription,
+    };
+
+    props.onAddMeetup(meetupData);
   }
 
   return (
