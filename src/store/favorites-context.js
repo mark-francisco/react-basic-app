@@ -12,6 +12,20 @@ const FavoritesContext = createContext({
 function FavoritesContextProvider(props) {
   const [userFavorites, setUserFavorites] = useState([]);
 
+  function addFavoriteHandler(favoriteMeetup) {
+    // Update the state: instead of just passing in the new value, you can instead pass in a fn as an arg to the state updating fn. this fn gets executed by React, so that the state updates gets executed right away instead of on a schedule. this is useful for when the new state value is dependent on the previous version of the state value.
+    setUserFavorites((prevUserFavorites) => {
+      // arr.concat returns a new array
+      return prevUserFavorites.concat(favoriteMeetup);
+    });
+  }
+  function removeFavoriteHandler(meetupId) {
+    setUserFavorites((prevUserFavorites) => {
+      return prevUserFavorites.filter((meetup) => meetup.id !== meetupId);
+    });
+  }
+  function itemIsFavoriteHandler() {}
+
   // this context object will hold the latest, updated state values
   const context = {
     favorites: userFavorites,
